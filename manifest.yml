@@ -1,0 +1,4 @@
+---
+applications:
+- name: concrete-users
+  command: node app/server.js

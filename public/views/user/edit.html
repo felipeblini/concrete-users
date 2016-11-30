@@ -1,0 +1,174 @@
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<form class="form-inline text-left" name="editForm" keypress-enter="submit()" keypress-esc="cancel()">
+			<h3 ng-show="isEdition"  class="text-center" translate="label.class.edit.user"></h3>
+			<h3 ng-show="isCreation" class="text-center" translate="label.class.create.user"></h3>
+			<h3 ng-show="isDeletion" class="text-center" translate="label.class.delete.user"></h3>
+			<h3 ng-show="isView"     class="text-center" translate="label.class.singular.user"></h3>			
+			<fieldset ng-show="dataReceived">
+				<div class="row">
+					<div class="form-group col-md-4">
+						<label for="inputUserId">UserId</label>
+						<div>
+							<input id="inputUserId" 
+								   name="inputUserId"
+								   type="number"
+								   step="1" 
+								   class="form-control" 
+								   placeholder="UserId" 
+								   ng-model="obj.userId" 
+								   ng-readonly="readOnly"
+								   required auto-focus />
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputNome">Nome</label>
+						<div>
+							<input id="inputNome" 
+								   name="inputNome"
+								   type="text" 
+								   class="form-control" 
+								   placeholder="Nome" 
+								   ng-model="obj.nome" 
+								   ng-readonly="readOnly"
+								   required />
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputEmail">Email</label>
+						<div>
+							<input id="inputEmail" 
+								   name="inputEmail"
+								   type="text" 
+								   class="form-control" 
+								   placeholder="Email" 
+								   ng-model="obj.email" 
+								   ng-readonly="readOnly"
+								   required />
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputSenha">Senha</label>
+						<div>
+							<input id="inputSenha" 
+								   name="inputSenha"
+								   type="text" 
+								   class="form-control" 
+								   placeholder="Senha" 
+								   ng-model="obj.senha" 
+								   ng-readonly="readOnly"
+								   required />
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputData_criacao">Data_criacao</label>
+						<div>
+							<date-selector id="inputData_criacao" 
+										   name="inputData_criacao"
+					          			   placeholder="Data_criacao" 
+						       			   ng-model="obj.data_criacao"
+						       			   ng-readonly="readOnly"
+						       			   ng-required="true"
+						       			   required/> 
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputData_atualizacao">Data_atualizacao</label>
+						<div>
+							<date-selector id="inputData_atualizacao" 
+										   name="inputData_atualizacao"
+					          			   placeholder="Data_atualizacao" 
+						       			   ng-model="obj.data_atualizacao"
+						       			   ng-readonly="readOnly"
+						       			   ng-required="false"
+						       			   /> 
+						</div>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="inputUltimo_login">Ultimo_login</label>
+						<div>
+							<date-selector id="inputUltimo_login" 
+										   name="inputUltimo_login"
+					          			   placeholder="Ultimo_login" 
+						       			   ng-model="obj.ultimo_login"
+						       			   ng-readonly="readOnly"
+						       			   ng-required="false"
+						       			   /> 
+						</div>
+					</div>
+				</div>
+			</fieldset>
+			<br/>
+			<div ng-hide="obj.hideTelefones">
+				<table id="caption" class="table">
+					<tr>
+						<td class="text-left">
+							<h4>Telefones</h4>
+						</td>
+						<td class="text-right">
+							<a class="select-link iconBig" alt="{{'cmd.select' | translate}}" ng-show="!readOnly" ng-click="selectTelefones()" ><span tooltip="{{'cmd.select' | translate}}" class="glyphicon glyphicon-search"></span></a>
+							<a class="iconBig" alt="{{'cmd.add' | translate}}" ng-show="!readOnly && ui.createTelefones" ng-click="addTelefones()" ><span tooltip="{{'cmd.add' | translate}}" class="glyphicon glyphicon-plus"></span></a>
+						</td>
+					</tr>
+				</table>
+				<table id="itemList" class="table data-table table-hover table-striped table-condensed">
+					<thead>
+						<th ng-click="sortBy('ddd')" class="col-md-5">Ddd<sort-column ng-model="searchContext.sort.ddd"></sort-column></th>
+						<th ng-click="sortBy('numero')" class="col-md-5">Numero<sort-column ng-model="searchContext.sort.numero"></sort-column></th>
+						<th ng-show="!readOnly" class="col-md-1"></th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="telefone in obj.telefones">
+							<td class="data"><a ng-click="viewTelefones(telefone)">{{telefone.ddd | number:0}}</a></td>
+							<td class="data">{{telefone.numero | number:0}}</td>
+							<td>
+								<a href ng-show="!readOnly" ng-click="deleteTelefones(telefone)">
+									<span class="glyphicon glyphicon-link color-red" tooltip="{{'cmd.unlink' | translate}}"></span>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>			
+			<br/>
+			<div class="row">	
+				<error-zone ng-model="errors"></error-zone>
+			</div>
+
+			<div ng-hide="dataReceived" class="loader"><img src="images/loader.gif" alt="Loading..." /></div>
+			<div ng-show="uiWorking" class="loader"><img src="images/loader.gif" alt="Working..." /></div>
+
+			<div class="row acc-buttons">
+				<button type="button" ng-show="isView" class="btn btn-default" ng-click="cancel($event)">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span translate="cmd.back"></span>
+				</button>
+				<button type="button" ng-show="isCreation" class="btn btn-primary" ng-click="add()" ng-disabled="editForm.$invalid" >
+					<span class="glyphicon glyphicon-plus"></span>
+					<span translate="cmd.create"></span>
+				</button>
+				<button type="button" ng-show="isEdition" class="btn btn-primary" ng-click="update()" ng-disabled="editForm.$invalid" >
+					<span class="glyphicon glyphicon-save"></span>
+					<span translate="cmd.update"></span>
+				</button>
+				<button type="button" ng-show="isDeletion" class="btn btn-primary" ng-click="delete()">
+					<span class="glyphicon glyphicon-trash"></span>
+					<span translate="cmd.delete"></span>
+				</button>
+				<button type="button" ng-show="canEdit" class="btn btn-primary" ng-click="gotoEdit()" ng-disabled="editForm.$invalid" >
+					<span class="glyphicon glyphicon-pencil"></span>
+					<span translate="cmd.modify"></span>
+				</button>
+				<button type="button" ng-hide="isView" class="btn btn-default" ng-click="cancel($event)">
+					<span translate="cmd.cancel"></span>
+				</button>
+				<button type="button" ng-show="canDelete" class="btn btn-primary pull-right" ng-click="gotoDelete()" ng-disabled="editForm.$invalid" >
+					<span class="glyphicon glyphicon-trash"></span>
+					<span translate="cmd.confirmDeletion"></span>
+				</button>					
+			</div>
+		</form>
+	</div>
+	<div class="col-md-1"></div>
+</div>

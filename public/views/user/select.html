@@ -1,0 +1,91 @@
+<div class="row">
+	<div class="col-md-12">
+	
+		<table id="caption" class="table">
+			<tr>
+				<td class="text-left">
+				</td>
+				<td class="text-center">
+					<h3 translate="label.class.select.user"></h3>
+				</td>
+				<td class="text-right">
+				  <a class="iconBig" href ng-click="refresh()"><span class="glyphicon glyphicon-refresh"></span></a>
+				</td>
+			</tr>
+		</table>
+
+		<div class="upperTableZone row">
+			<search-tool class="col-md-12"
+						 ng-model="searchContext"
+						 search="refresh">
+			</search-tool>
+		</div>
+
+		<table id="itemList" class="table data-table table-hover table-striped table-condensed" ng-show="dataReceived">
+			<thead>
+				<th>
+				</th>				
+				<th ng-click="sortBy('userId')">UserId<sort-column ng-model="searchContext.sort.userId"></sort-column></th>
+				<th ng-click="sortBy('nome')">Nome<sort-column ng-model="searchContext.sort.nome"></sort-column></th>
+				<th ng-click="sortBy('email')">Email<sort-column ng-model="searchContext.sort.email"></sort-column></th>
+				<th ng-click="sortBy('senha')">Senha<sort-column ng-model="searchContext.sort.senha"></sort-column></th>
+				<th ng-click="sortBy('data_criacao')">Data_criacao<sort-column ng-model="searchContext.sort.data_criacao"></sort-column></th>
+				<th ng-click="sortBy('data_atualizacao')">Data_atualizacao<sort-column ng-model="searchContext.sort.data_atualizacao"></sort-column></th>
+				<th ng-click="sortBy('ultimo_login')">Ultimo_login<sort-column ng-model="searchContext.sort.ultimo_login"></sort-column></th>
+				
+				<th></th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in dataList">
+					<td>
+						<a href ng-click="select(user, $event)">
+							<span class="glyphicon glyphicon-search" tooltip="Select">
+						</a>
+					</td>
+					<td class="data">{{user.userId | number:0}}</td>
+					<td class="data">{{user.nome}}</td>
+					<td class="data">{{user.email}}</td>
+					<td class="data">{{user.senha}}</td>
+					<td class="data">{{user.data_criacao | date:'yyyy.MM.dd'}}</td>
+					<td class="data">{{user.data_atualizacao | date:'yyyy.MM.dd'}}</td>
+					<td class="data">{{user.ultimo_login | date:'yyyy.MM.dd'}}</td>
+					<td>
+						<a href ng-click="select(user, $event)">
+							<span class="glyphicon glyphicon-search" tooltip="Select">
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>			
+		
+		<div ng-show="dataReceived" class="text-center">
+			<div>
+				<pagination max-size="5" 
+							boundary-links="true" 
+				            total-items="searchContext.totalItems" 
+				            items-per-page="searchContext.pageSize" 
+				            ng-model="searchContext.currentPage" 
+							ng-change="loadCurrentPage()"
+							previous-text="&lsaquo;" 
+							next-text="&rsaquo;" 
+							first-text="&laquo;" 
+							last-text="&raquo;">
+				</pagination>
+			</div>
+		</div>			
+		<div ng-show="!dataReceived" class="loader">
+			<img src="images/loader.gif" alt="Loading..." />
+		</div>
+		<div class="row acc-buttons">
+			<div class="form-group">
+				<div>
+					<button class="btn" ng-click="select()">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						<span translate="cmd.cancel"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>

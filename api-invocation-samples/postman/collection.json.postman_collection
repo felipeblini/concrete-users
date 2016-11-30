@@ -1,0 +1,326 @@
+{
+    "id": "056bc542-a87d-43d0-887c-403c535ea990",
+    "name": "concrete-users",
+    "description": "Postman's collection for concrete-users",
+    "order": [
+        "daca8493-655b-9393-b70c-17c12d4ab855"
+    ],
+    "folders": [
+    
+        {
+            "id": "c5f1c185-f2c4-4c86-8453-85ca800756ea",
+            "name": "Diagnostic",
+            "description": "Diagnostic operations.",
+            "order": [
+                
+                "1e674e69-90e6-4208-af9c-5e228adf2d07",                
+                "f912b839-898e-4ad1-9843-15030df2eb41"                
+            ],
+            "owner": 0
+        },    
+        {
+            "id": "e77adcf9-0a55-4655-90fe-64e566eb513b",
+            "name": "User",
+            "description": "Collection for resource User",
+            "order": [
+                
+                "1190f512-97f2-4705-accf-b3e3f11c5a7e",                
+                "1c19e7db-ccef-4166-aa71-663da5be58fd",                
+                "af3f0568-19e9-4e59-80ce-ee92cd9e7bf4",                
+                "b97e4e86-701c-49b0-a9c0-ffe2e9672ff3"                
+            ],
+            "owner": 0
+        },    
+        {
+            "id": "88500f56-5ef8-4699-b3e9-624eb809fce4",
+            "name": "Telefone",
+            "description": "Collection for resource Telefone",
+            "order": [
+                
+                "cd6bd03b-d482-49e3-a04b-59ac768e0ae1",                
+                "c41bbed5-242e-4d08-b671-0cb8510534b2",                
+                "328e1ea1-db61-498b-81db-41b07e03a6a4",                
+                "fcc31005-ec97-4b4e-a64d-db83b0a511a1"                
+            ],
+            "owner": 0
+        }    
+    ],
+    "timestamp": 1480544507397,
+    "owner": 0,
+    "remoteLink": "",
+    "public": false,
+    "requests": [
+                
+    {
+            "id": "7f563af8-6cf3-44f3-b889-61fd887531b6",
+            "headers": "Authorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/swagger.json",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "GET",
+            "data": [],
+            "dataMode": "params",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507397,
+            "name": "API Doc: Swagger 2.0",
+            "description": "Swagger 2.0 API Documentation",
+            "descriptionFormat": "",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": ""
+        },                
+    {
+            "id": "1e674e69-90e6-4208-af9c-5e228adf2d07",
+            "headers": "",
+            "url": "http://{{host}}:{{port}}/ping",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "GET",
+            "data": [],
+            "dataMode": "params",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "normal",
+            "helperAttributes": {},
+            "time": 1480544507397,
+            "name": "Ping Service",
+            "description": "The Ping service allows to check if the service is up and running.\nIn production systems it can be used by Load Balancers to check if the current node is working.\nNo auth credentials are needed to call this service.\nA successfull response for a ping call is: `200 OK { \"msg\": \"pong\" }`",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": ""
+        },                
+    {
+            "id": "f912b839-898e-4ad1-9843-15030df2eb41",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/status",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "GET",
+            "data": [],
+            "dataMode": "params",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507397,
+            "name": "Status Service",
+            "description": "The Status service provides information and versions of the running backend. This method requires authentication.",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": ""
+        },                
+    {
+            "id": "1190f512-97f2-4705-accf-b3e3f11c5a7e",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/users?limit=10",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "GET",
+            "data": [],
+            "dataMode": "params",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507428,
+            "name": "Query User",
+            "description": "Query User. Query syntax follows the BaucisJS conventions, see: https://github.com/wprl/baucis/wiki/Query-String-Parameters",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": ""
+        },                
+    {
+            "id": "1c19e7db-ccef-4166-aa71-663da5be58fd",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/users",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "POST",
+            "data": [],
+            "dataMode": "raw",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507428,
+            "name": "Create User",
+            "description": "Creates a new User.",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": "{\n    \"userId\" : 3,\n    \"nome\" : \"new_nome\",\n    \"email\" : \"new_email\",\n    \"senha\" : \"new_senha\",\n    \"data_criacao\" : \"2016-11-30\",\n    \"data_atualizacao\" : \"2016-11-30\",\n    \"ultimo_login\" : \"2016-11-30\"\n}"
+        },                
+    {
+            "id": "af3f0568-19e9-4e59-80ce-ee92cd9e7bf4",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/users/{{id}}",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "PUT",
+            "data": [],
+            "dataMode": "raw",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507428,
+            "name": "Update User",
+            "description": "Updates the User with id: `{{id}}`.",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": "{\n    \"userId\" : 3,\n    \"nome\" : \"updated_nome\",\n    \"email\" : \"updated_email\",\n    \"senha\" : \"updated_senha\",\n    \"data_criacao\" : \"2016-11-30\",\n    \"data_atualizacao\" : \"2016-11-30\",\n    \"ultimo_login\" : \"2016-11-30\"\n}"
+        },                
+    {
+            "id": "b97e4e86-701c-49b0-a9c0-ffe2e9672ff3",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/users/{{id}}",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "DELETE",
+            "data": [],
+            "dataMode": "raw",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507428,
+            "name": "Delete User",
+            "description": "Deletes the User with id: `{{id}}`.",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": ""
+        },                
+    {
+            "id": "cd6bd03b-d482-49e3-a04b-59ac768e0ae1",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/telefones?limit=10",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "GET",
+            "data": [],
+            "dataMode": "params",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507428,
+            "name": "Query Telefone",
+            "description": "Query Telefone. Query syntax follows the BaucisJS conventions, see: https://github.com/wprl/baucis/wiki/Query-String-Parameters",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": ""
+        },                
+    {
+            "id": "c41bbed5-242e-4d08-b671-0cb8510534b2",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/telefones",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "POST",
+            "data": [],
+            "dataMode": "raw",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507428,
+            "name": "Create Telefone",
+            "description": "Creates a new Telefone.",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": "{\n    \"ddd\" : 3,\n    \"numero\" : 3\n}"
+        },                
+    {
+            "id": "328e1ea1-db61-498b-81db-41b07e03a6a4",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/telefones/{{id}}",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "PUT",
+            "data": [],
+            "dataMode": "raw",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507428,
+            "name": "Update Telefone",
+            "description": "Updates the Telefone with id: `{{id}}`.",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": "{\n    \"ddd\" : 3,\n    \"numero\" : 3\n}"
+        },                
+    {
+            "id": "fcc31005-ec97-4b4e-a64d-db83b0a511a1",
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Basic aWNpbmV0aWM6YWRtaW4=\n",
+            "url": "http://{{host}}:{{port}}/api/telefones/{{id}}",
+            "preRequestScript": "",
+            "pathVariables": {},
+            "method": "DELETE",
+            "data": [],
+            "dataMode": "raw",
+            "version": 2,
+            "tests": "",
+            "currentHelper": "basicAuth",
+            "helperAttributes": {
+				"username": "{{user}}",
+				"password": "{{pass}}",
+				"saveToRequest": true
+			},
+            "time": 1480544507428,
+            "name": "Delete Telefone",
+            "description": "Deletes the Telefone with id: `{{id}}`.",
+            "descriptionFormat": "html",
+            "collectionId": "056bc542-a87d-43d0-887c-403c535ea990",
+            "responses": [],
+            "rawModeData": ""
+        }                 
+    ]    
+}
